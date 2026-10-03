@@ -1,11 +1,14 @@
 {
   "name": "meanwhile",
-  "owner": { "name": "Naga Jyothi Prakash" },
+  "description": "meanwhile: learn one thing a day while Claude Code works",
+  "owner": {
+    "name": "Naga Jyothi Prakash"
+  },
   "plugins": [
     {
       "name": "meanwhile",
       "source": "./",
-      "description": "Learn one new thing a day while Claude thinks. One dim line under the spinner, one topic a day."
+      "description": "A small card above the prompt asks one question a day while Claude works; finish them and /wrapped turns your day into a share card."
     }
   ]
 }
