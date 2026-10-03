@@ -1,0 +1,4 @@
+{
+  "description": "meanwhile: daily lesson in the spinner, /meanwhile and /wrapped panes",
+  "modules": ["./register.js"]
+}

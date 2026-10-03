@@ -1,0 +1,11 @@
+{
+  "name": "meanwhile",
+  "owner": { "name": "Naga Jyothi Prakash" },
+  "plugins": [
+    {
+      "name": "meanwhile",
+      "source": "./",
+      "description": "Learn one new thing a day while Claude thinks. One dim line under the spinner, one topic a day."
+    }
+  ]
+}

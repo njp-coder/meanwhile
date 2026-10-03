@@ -1,0 +1,15 @@
+{
+  "name": "meanwhile",
+  "version": "0.8.0",
+  "description": "A small card above the prompt teaches you one thing while Claude works, and turns your day into something worth sharing",
+  "author": {
+    "name": "Naga Jyothi Prakash"
+  },
+  "keywords": [
+    "learning",
+    "spinner",
+    "til",
+    "wrapped",
+    "mod"
+  ]
+}
