@@ -116,7 +116,7 @@ export function register(on) {
     if (ran.deny === undefined && !ran.isError) {
       if (EDIT_TOOLS.has(e.tool)) {
         turnWork.edits += 1
-        if (e.file_path || e.notebook_path) turnWork.files.add(e.file_path || e.notebook_path)
+        if (e.file_path || e.notebook_path) turnWork.files.add(fingerprint(e.file_path || e.notebook_path))
       } else if (e.tool === 'Bash') {
         turnWork.commands += 1
       }
@@ -631,6 +631,13 @@ function fmtDuration(ms) {
   const m = Math.round((ms || 0) / 60000)
   if (m < 60) return m + 'm'
   return Math.floor(m / 60) + 'h ' + String(m % 60).padStart(2, '0') + 'm'
+}
+
+// Files are only counted, so keep a short hash, never the path (paths can hold a username)
+function fingerprint(path) {
+  let h = 2166136261
+  for (let i = 0; i < path.length; i++) h = Math.imul(h ^ path.charCodeAt(i), 16777619)
+  return (h >>> 0).toString(36)
 }
 
 function fmtSeconds(ms) {

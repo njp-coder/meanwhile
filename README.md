@@ -70,7 +70,7 @@ meanwhile runs no commands and no tools of its own, and it never changes, blocks
 **What each hook does with what it sees**
 - `session.start`: registers `/meanwhile` and `/wrapped` and loads today's lesson.
 - `turn.start` / `turn.complete`: notes that Claude is working (so the card only moves on then) and adds the turn's duration to today's count. It does not read or keep the conversation text.
-- `tool.call`: lets every call through unchanged, then counts it. For Edit, Write, MultiEdit and NotebookEdit it notes the file path; for Bash it counts one command. It never reads command text or file contents.
+- `tool.call`: lets every call through unchanged, then counts it. For Edit, Write, MultiEdit and NotebookEdit it keeps a short hash of the file path, only to count distinct files (never the path itself); for Bash it counts one command. It never reads command text or file contents.
 - `command.run` for `/meanwhile` and `/wrapped`: answers only those two commands, by opening their panes. Other commands are not touched.
 - `ui.render`: draws the card above the prompt and the two panes.
 

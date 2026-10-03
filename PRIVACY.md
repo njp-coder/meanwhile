@@ -10,7 +10,7 @@ meanwhile collects nothing for its developer. There is no analytics, telemetry o
 - One Haiku call a day, through your own Claude Code session and plan, containing today's headlines and your dependency names. Never your source code, prompts or conversation.
 
 **What it stores, on your machine only**
-- Today's lesson, which questions you've seen, and daily counts (turns, tool calls, edits, files touched, time Claude worked), in Claude Code's own plugin store. Delete the plugin's store file to clear it.
+- Today's lesson, which questions you've seen, and daily counts (turns, tool calls, edits, number of distinct files touched, time Claude worked; file paths are kept only as short hashes), in Claude Code's own plugin store. Delete the plugin's store file to clear it.
 
 **What it shares with third parties:** nothing.
 
