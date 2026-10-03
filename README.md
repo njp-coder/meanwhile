@@ -57,3 +57,7 @@ Then quit and reopen Claude Code (in the desktop app: ⌘Q) and start a new sess
 claude plugin validate .
 CLAUDE_CODE_ENABLE_FUNCTION_HOOKS=1 claude plugin test
 ```
+
+## Privacy
+
+See [PRIVACY.md](PRIVACY.md). meanwhile collects nothing for its developer.

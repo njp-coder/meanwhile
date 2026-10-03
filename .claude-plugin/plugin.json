@@ -7,9 +7,17 @@
   },
   "keywords": [
     "learning",
-    "spinner",
     "til",
+    "daily-lesson",
     "wrapped",
     "mod"
-  ]
+  ],
+  "displayName": "meanwhile",
+  "icon": "./.claude-plugin/icon.svg",
+  "homepage": "https://github.com/njp-coder/meanwhile",
+  "repository": "https://github.com/njp-coder/meanwhile",
+  "documentationUrl": "https://github.com/njp-coder/meanwhile#readme",
+  "supportUrl": "https://github.com/njp-coder/meanwhile/issues",
+  "privacyPolicyUrl": "https://github.com/njp-coder/meanwhile/blob/main/PRIVACY.md",
+  "license": "MIT"
 }
