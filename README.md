@@ -51,6 +51,31 @@ Then quit and reopen Claude Code (in the desktop app: ⌘Q) and start a new sess
 
 **What it reaches:** the Hacker News and GitHub public APIs once a day, and your current folder's `package.json` / `pyproject.toml` / `Cargo.toml` / `go.mod` to pick a topic that fits your stack. The daily Haiku call sees only today's headlines and your dependency names, never your code.
 
+## What it does on your machine
+
+meanwhile runs no commands and no tools of its own, and it never changes, blocks or rewrites anything Claude does.
+
+**Network: two fixed hosts, once a day**
+- `https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=30`: the public Hacker News front page.
+- `https://api.github.com/search/repositories?q=created:>DATE&sort=stars&order=desc&per_page=12`: the most-starred public repos created in the last 7 days. `DATE` is today minus 7 days; that date is the only part of the address that changes.
+- It sends nothing to either host beyond those public requests.
+
+**What it sends, and where**
+- One `$.model.complete` call a day to Claude Haiku, through your own Claude Code session and plan. It contains the headlines from the two hosts above and the dependency names it read locally (below). Never your source code, prompts or conversation.
+- Nothing is sent anywhere else. There is no server of its own.
+
+**What it reads locally**
+- In your current folder: `package.json` (dependency names), and whether `pyproject.toml`, `Cargo.toml` or `go.mod` exists. Used only to prefer a topic that fits your stack.
+
+**What each hook does with what it sees**
+- `session.start`: registers `/meanwhile` and `/wrapped` and loads today's lesson.
+- `turn.start` / `turn.complete`: notes that Claude is working (so the card only moves on then) and adds the turn's duration to today's count. It does not read or keep the conversation text.
+- `tool.call`: lets every call through unchanged, then counts it. For Edit, Write, MultiEdit and NotebookEdit it notes the file path; for Bash it counts one command. It never reads command text or file contents.
+- `command.run` for `/meanwhile` and `/wrapped`: answers only those two commands, by opening their panes. Other commands are not touched.
+- `ui.render`: draws the card above the prompt and the two panes.
+
+**What it stores:** today's lesson and daily counts, in Claude Code's own plugin store on your machine. See [PRIVACY.md](PRIVACY.md).
+
 ## Develop
 
 ```bash

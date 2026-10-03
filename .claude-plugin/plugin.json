@@ -13,7 +13,7 @@
     "mod"
   ],
   "displayName": "meanwhile",
-  "icon": "./.claude-plugin/icon.svg",
+  "icon": "./.claude-plugin/icon.png",
   "homepage": "https://github.com/njp-coder/meanwhile",
   "repository": "https://github.com/njp-coder/meanwhile",
   "documentationUrl": "https://github.com/njp-coder/meanwhile#readme",
